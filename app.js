@@ -48,6 +48,7 @@ async function createAllCards(){
     const links = await getPokemonsLinks();
     const promises = links.map(link => fetch(link).then(data => data.json()))
     const res = await Promise.all(promises);
+
     
     for(const pokemon of res){
         const newCard = createCard(pokemon);
@@ -101,16 +102,23 @@ function createCard(element){
     h1.classList.add("name")
     h1.textContent = element.name;
     
-    const p = document.createElement("p");
-    p.classList.add("pokemon-type");
-    p.textContent = element.types[0].type.name;
+    const typeList = document.createElement("div");
+    typeList.classList.add("type-list");
 
+    // Create all types p
+    for(let type of types) {
+        let p = document.createElement("p");
+        p.classList.add("pokemon-type");
+        p.textContent = type;
+        typeList.appendChild(p);
+    }
+    
     const img = document.createElement("img");
     img.src = element.sprites.other.dream_world.front_default;
-
+    
     container.appendChild(img)
     container.appendChild(h1);
-    container.appendChild(p);
+    container.appendChild(typeList);
 
     pokemon.appendChild(container);
 

@@ -56,6 +56,7 @@ img{
 
 .container .name{
     font-size: 1.8rem;
+    margin-bottom: 5px;
 }
 
 .container .pokemon-type{
@@ -65,6 +66,13 @@ img{
     margin: 0 auto;
     border-radius: 10px;
     color: white;
+}
+
+.type-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
 }
 
 .hidden{
