@@ -28,10 +28,14 @@ body{
     padding: 10px 20px;
 }
 
+.type:hover{
+    transform: scale(1.15);
+}
+
 .pokemons{
     max-width: 90%;
     background-color: rgba(137, 43, 226, 0.233);
-    margin: 0 auto;
+    margin: 10px auto;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -66,6 +70,19 @@ img{
     margin: 0 auto;
     border-radius: 10px;
     color: white;
+}
+
+.info{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+.info .num{
+    background-color: grey;
+    padding: 2px;
+    border-radius: 20%;
 }
 
 .type-list{
