@@ -67,7 +67,6 @@ async function display(filter){
         Array.from(selectPokemons).forEach(el =>{
             el.classList.remove("hidden");
     });
-        return;
     }
     else{
         Array.from(selectPokemons).forEach(el =>{
@@ -83,10 +82,19 @@ async function display(filter){
 function createCard(element){
     const pokemon = document.createElement("div");
     pokemon.classList.add("pokemon");
-    pokemon.classList.add(`${element.types[0].type.name}-search`)
+
+    // Types (maybe more than 1)
+    let types = element.types;
+    types = types.map(type => type.type.name)
+
+    types.forEach(type => {
+        pokemon.classList.add(`${type}-search`)
+    })
     
     const container = document.createElement("div");
     container.classList.add("container");
+
+
     container.classList.add(`${element.types[0].type.name}`)
 
     const h1 = document.createElement("h1");
